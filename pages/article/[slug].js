@@ -29,6 +29,7 @@ const mapPageUrl = id => {
   return 'https://www.notion.so/' + id.replace(/-/g, '')
 }
 const ArticleDetail = ({ post, blockMap, tags, prev, next, posts, categories }) => {
+  // console.log(post)
   if (!post) {
     return <Custom404/>
   }

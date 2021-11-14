@@ -3,10 +3,12 @@ import { generateRss } from '@/lib/rss'
 
 export async function getServerSideProps ({res}) {
   res.setHeader('Content-Type', 'text/xml')
-  let posts = await getAllPosts({ from: 'feed' })
+  let posts = await getAllPosts({ from: 'feed' }) 
+
+
   posts = posts
     .filter(post => post.status[0] === 'Published' && post.type[0] === 'Post')
-    .slice(0, 10)
+    .slice(0, 50)
   const xmlFeed = generateRss(posts)
   res.write(xmlFeed) 
 
