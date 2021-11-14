@@ -20,7 +20,7 @@ import Link from 'next/link'
  * @constructor
  */
 const SideBar = ({ tags, currentTag, post, posts, categories, currentCategory }) => {
-  return <aside id='sidebar' className='pt-10 bg-white dark:bg-gray-800 w-72 z-10 dark:border-gray-500 border-gray-200 scroll-hidden h-full'>
+  return <aside id='sidebar' className='pt-10 bg-white dark:bg-gray-800 w-72 z-10 dark:border-gray-500 border-gray-200 sidebar  scroll-hidden h-full'>
     <section>
       <InfoCard />
     </section>

@@ -49,7 +49,7 @@ const ArticleDetail = ({ post, blockMap, tags, prev, next, posts, categories }) 
     <div id='article-wrapper' ref={targetRef} className='flex-grow bg-gray-200 dark:bg-black'>
       {/* 中央区域 wrapper */}
       <header
-        className='shadow-card duration-200 mx-auto max-w-5xl mt-16 lg:mt-32 md:flex-shrink-0 animate__fadeIn animate__animated'>
+        className='shadow-card duration-200 mx-auto max-w-5xl  md:flex-shrink-0 animate__fadeIn animate__animated'>
         {/* 封面图 */}
         {post.page_cover && post.page_cover.length > 1 && (
           <img className='bg-center object-cover w-full' style={{ maxHeight: '40rem' }}
@@ -177,8 +177,10 @@ const ArticleDetail = ({ post, blockMap, tags, prev, next, posts, categories }) 
 }
 
 export async function getStaticPaths () {
+  // console.log('计时开始1')
   let posts = await getAllPosts({ from: 'slug - paths' })
   posts = posts.filter(post => post.status[0] === 'Published')
+  // console.log('计时开始1-1')
   return {
     paths: posts.map(row => `${BLOG.path}/article/${row.slug}`),
     fallback: true
@@ -186,6 +188,8 @@ export async function getStaticPaths () {
 }
 
 export async function getStaticProps ({ params: { slug } }) {
+  console.log('计时开始')
+  let begin=(new Date()).getTime();
   let posts = await getAllPosts({ from: 'slug-props' })
   posts = posts.filter(post => post.status[0] === 'Published')
   const post = posts.find(t => t.slug === slug)
@@ -210,6 +214,7 @@ export async function getStaticProps ({ params: { slug } }) {
   const index = posts.indexOf(post)
   const prev = posts.slice(index - 1, index)[0] ?? posts.slice(-1)[0]
   const next = posts.slice(index + 1, index + 2)[0] ?? posts[0]
+  console.log('耗时：'+((new Date()).getTime()-begin)/1000)
 
   return {
     props: { post, blockMap, tags, prev, next, posts, categories },

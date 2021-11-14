@@ -42,6 +42,10 @@ body::-webkit-scrollbar-thumb {
   border-bottom-color: transparent;
 }
 
+.sidebar{
+  border-right: 1px solid rgba(229, 231, 235, var(--tw-bg-opacity));
+}
+
 .sticky-nav-full {
   @apply border-b border-opacity-50 border-gray-200 dark:border-gray-600 dark:border-opacity-50;
 }
