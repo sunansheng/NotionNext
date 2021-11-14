@@ -1,11 +1,11 @@
 const BLOG = {
-  title: '塘里1024',
-  author: '塘里',
-  email: 'tlyong1992@hotmail.com',
-  link: 'https://tangly1024.com',
+  title: '苏南生的知识笔记',
+  author: '苏南生',
+  email: 'snans@163.com',
+  link: 'https://sunansheng.com',
   description: '分享有趣的技术与思考',
   lang: 'zh-CN', // ['zh-CN','en-US']
-  notionPageId: process.env.NOTION_PAGE_ID || 'bee1fccfa3bd47a1a7be83cc71372d83', // Important page_id！！！
+  notionPageId: process.env.NOTION_PAGE_ID || '2d2bdf0ceb334eaeb18a0d431da45a85', // Important page_id！！！
   notionAccessToken: process.env.NOTION_ACCESS_TOKEN || '', // Useful if you prefer not to make your database public
   appearance: 'auto', // ['light', 'dark', 'auto'],
   font: 'font-sans', // ['font-sans', 'font-serif', 'font-mono']
@@ -62,5 +62,6 @@ const BLOG = {
   DaoVoiceId: '', // 在线聊天 DaoVoice http://dashboard.daovoice.io/get-started
   TidioId: '8lgekxyr9hr9m7archbs0a4a2gu9ckbg' // 在线聊天 https://www.tidio.com/
 }
-// export default BLOG
+//  export default BLOG
 module.exports = BLOG
+
